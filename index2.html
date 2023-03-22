@@ -16,10 +16,8 @@
 
 
     <div id="topLogo">
-      <h1>-----</h1>
+      <h1>SwooshTrafik</h1>
     </div>
-
-
 
     <div id="formGrid">
 
@@ -55,16 +53,12 @@
         </div>
       </div>
 
-
-
     </div>
 
-
-    <!-- <p>{{stopId[0]}} {{stopId[1]}} {{stopId[2]}}</p> -->
     <div id="listGrid">
       <ul>
-        <h3>Lista 1</h3>
-        <li v-for="(departure, index) in departures[0]" :key="index">
+        <h3>{{stopData[0].depatureName}}</h3>
+        <li v-for="(departure, index) in stopData[0].departures" :key="index">
           {{departure.sname}} mot
           {{departure.direction}} avgår kl
           {{departure.time}} om
@@ -72,8 +66,8 @@
         </li>
       </ul>
       <ul>
-        <h3>Lista 2</h3>
-        <li v-for="(departure, index) in departures[1]" :key="index">
+        <h3>{{stopData[1].depatureName}}</h3>
+        <li v-for="(departure, index) in stopData[1].departures" :key="index">
           {{departure.sname}} mot
           {{departure.direction}} avgår kl
           {{departure.time}} om
@@ -81,8 +75,8 @@
         </li>
       </ul>
       <ul>
-        <h3>Lista 3</h3>
-        <li v-for="(departure, index) in departures[2]" :key="index">
+        <h3>{{stopData[2].depatureName}}</h3>
+        <li v-for="(departure, index) in stopData[2].departures" :key="index">
           {{departure.sname}} mot
           {{departure.direction}} avgår kl
           {{departure.time}} om
