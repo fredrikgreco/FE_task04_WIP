@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="main.css">
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <script src="main2.js" defer></script>
+  <script src="main.js" defer></script>
   <title>School and Back</title>
 </head>
 
@@ -16,21 +16,17 @@
 
 
     <div id="topLogo">
-      <h1>-----</h1>
+      <h1></h1>
     </div>
-
-
 
     <div id="formGrid">
 
       <div id="leftGrid">
-        <div id="clock">
-          <p id="time">{{currentTime}}</p>
-        </div>
 
-        <div id="formTitleCell">
+
+        <!-- <div id="formTitleCell">
           <h2>Avgångar från {{userInput}}</h2>
-        </div>
+        </div> -->
 
         <div id="formCell">
           <form id="formSubmit" @submit.prevent="updateStop(userInput)">
@@ -41,9 +37,15 @@
         </div>
       </div>
 
+      <div id="midGrid">
+        <div id="clock">
+          <p id="time">{{currentTime}}</p>
+        </div>
+      </div>
+
       <div id="rightGrid">
         <div id="favoritesCell">
-          <form>
+          <form id="formButtonCell">
             <button type="button" @click="addButton">Add To Favorites</button>
           </form>
           <div id="buttonContainer">
@@ -55,16 +57,12 @@
         </div>
       </div>
 
-
-
     </div>
 
-
-    <!-- <p>{{stopId[0]}} {{stopId[1]}} {{stopId[2]}}</p> -->
     <div id="listGrid">
       <ul>
-        <h3>Lista 1</h3>
-        <li v-for="(departure, index) in departures[0]" :key="index">
+        <h3>{{stopData[0].depatureName}}</h3>
+        <li v-for="(departure, index) in stopData[0].departures" :key="index">
           {{departure.sname}} mot
           {{departure.direction}} avgår kl
           {{departure.time}} om
@@ -72,8 +70,8 @@
         </li>
       </ul>
       <ul>
-        <h3>Lista 2</h3>
-        <li v-for="(departure, index) in departures[1]" :key="index">
+        <h3>{{stopData[1].depatureName}}</h3>
+        <li v-for="(departure, index) in stopData[1].departures" :key="index">
           {{departure.sname}} mot
           {{departure.direction}} avgår kl
           {{departure.time}} om
@@ -81,8 +79,8 @@
         </li>
       </ul>
       <ul>
-        <h3>Lista 3</h3>
-        <li v-for="(departure, index) in departures[2]" :key="index">
+        <h3>{{stopData[2].depatureName}}</h3>
+        <li v-for="(departure, index) in stopData[2].departures" :key="index">
           {{departure.sname}} mot
           {{departure.direction}} avgår kl
           {{departure.time}} om
@@ -91,7 +89,7 @@
       </ul>
     </div>
     <div id="bottomButton">
-      <button type="submit" id="clearButton" @click="clearAllLists()">Clear lists</button>
+      <button type="submit" id="clearButton" @click="resetAll()">Clear lists</button>
     </div>
   </div>
 
