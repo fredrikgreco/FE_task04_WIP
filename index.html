@@ -46,7 +46,7 @@
       <div id="rightGrid">
         <div id="favoritesCell">
           <form id="formButtonCell">
-            <button type="button" @click="addButton">Add To Favorites</button>
+            <button type="button" id="addFavButton" @click="addButton">Add To Favorites</button>
           </form>
           <div id="buttonContainer">
             <div v-for="(buttonText, index) in buttonList" :key="index">
@@ -60,7 +60,7 @@
     </div>
 
     <div id="listGrid">
-      <ul>
+      <ul id="listOne">
         <h3>{{stopData[0].depatureName}}</h3>
         <li v-for="(departure, index) in stopData[0].departures" :key="index">
           {{departure.sname}} mot
